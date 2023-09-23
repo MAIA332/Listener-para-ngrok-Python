@@ -1,5 +1,12 @@
 import requests
 import json
+import subprocess
+import time
+import os
+
+def start_ngrok(port):
+    ngrok_process = subprocess.Popen(['ngrok', 'http', str(port)],shell=False,stdout=subprocess.DEVNULL)
+    return ngrok_process
 
 def get_ngrok_ip():
     try:
@@ -14,6 +21,20 @@ def get_ngrok_ip():
         return None
 
 if __name__ == '__main__':
-    ngrok_ip = get_ngrok_ip()
-    if ngrok_ip:
-        print('IP do ngrok:', ngrok_ip)
+    port = 5000  # Change this to your desired port
+
+    ngrok_process = start_ngrok(port)
+    
+    try:
+        while True:
+            ngrok_ip = get_ngrok_ip()
+            
+            if ngrok_ip:
+                os.system("cls")
+                print('IP do ngrok:', ngrok_ip)
+            time.sleep(5)
+
+    except KeyboardInterrupt:
+        pass
+    finally:
+        ngrok_process.terminate()
