@@ -26,3 +26,8 @@ port = 5000  # Altere para a porta desejada
 ```
 python index.py
 ```
+
+
+<p align="center">
+  Feito com ❤️ por Lukas Maia
+</p>
