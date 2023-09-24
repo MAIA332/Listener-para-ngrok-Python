@@ -32,10 +32,9 @@ python index.py
 1. Edite o código para mapear os domínios e portas desejadas
 ```
 domain_port_mapping = {
-        "dominio1.com": 5000,
-        "dominio2.com": 6000,
-       
-    }
+ "dominio1.com": 5000,
+ "dominio2.com": 6000,
+}
 ```
 
 
